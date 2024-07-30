@@ -1,6 +1,7 @@
 return {
     WhitelistedIDS = {
         7024671734,
+        11,
     },
     Toxic = {
       "ez",
