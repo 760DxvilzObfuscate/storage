@@ -1,0 +1,14 @@
+return {
+    WhitelistedIDS = {
+        87654321,
+    },
+    Toxic = {
+      "ez",
+      "sit down",
+      "your my kin",
+      "lol too easy",
+      "50-0 lil bro",
+      "I'm stronger. I'm better. I AM BETTER!",
+      "I'm doing coke rn."
+    }
+}
