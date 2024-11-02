@@ -1,0 +1,30 @@
+local tool = Instance.new("Tool")
+tool.Name = "Suicide Flip"
+tool.CanBeDropped = false
+tool.RequiresHandle = false
+tool.Parent = game.Players.LocalPlayer.Backpack
+tool:SetAttribute("Regged", true)
+
+local function playanim(animid)
+
+	local hum = game.Players.LocalPlayer.Character:FindFirstChildOfClass("Humanoid")
+
+	local anim = Instance.new("Animation")
+	anim.AnimationId = "rbxassetid://"..animid
+
+	local playanim = hum:LoadAnimation(anim)
+	playanim:Play()
+	playanim:AdjustSpeed(1.35)
+
+end
+
+local used = false
+
+tool.Activated:Connect(function()
+	if not used then
+		used = true
+		playanim(17292855624)
+		task.wait(1.2)
+		game.Players.LocalPlayer.Character:FindFirstChildOfClass("Humanoid").Health = 0
+	end
+end)
