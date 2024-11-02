@@ -1,0 +1,30 @@
+		voidwait = true
+ 
+		local character = localplr.Character
+		local animate = character.Humanoid.Animator
+ 
+        if character.HumanoidRootPart.CFrame.Y > -200 then
+			lastcf = character.HumanoidRootPart.CFrame
+		end
+ 
+		for i,v in pairs(animate:GetPlayingAnimationTracks()) do
+			if ifind(animations, v.Animation.AnimationId) then
+				task.wait(animations[v.Animation.AnimationId])
+				dothetech = true
+ 
+				v.Stopped:Connect(function()
+					dothetech = false
+				end)
+ 
+				repeat wait()
+					character.HumanoidRootPart.CFrame = CFrame.new(0,-voidheight,0) * CFrame.Angles(math.rad(-90), 0, 0)
+				until not dothetech
+ 
+				task.wait(0.1)
+				character.HumanoidRootPart.CFrame = lastcf
+				task.wait(1)
+				voidwait = false
+			else
+				voidwait = false
+			end
+		end
